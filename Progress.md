@@ -11,13 +11,13 @@ Notes:
 
 Important questions to ask:
 * What data will we store in our database?
-    * Address to Youtube video
-    * Topic / Subject
-    * ICD10 Code / Id for subject (for non-medical questions)
-    * Name (?)
-    * Description (?)
-    * Keywords (?)
-    * Doc (?)
+  * Address to Youtube video
+  * Topic / Subject
+  * ICD10 Code / Id for subject (for non-medical questions)
+  * Name (?)
+  * Description (?)
+  * Keywords (?)
+  * Doc (?)
 
 * Do we prefer relational vs. non-relational database? (MySQL vs Mongo)
 
