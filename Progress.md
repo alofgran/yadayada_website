@@ -2,8 +2,9 @@
 
 Below is the progress done by @ryanegbert each day on YadaYada Now.
 
-###Wednesday, June 24###
-
+### Wednesday, June 24 (1.5hr)###
+* Added dummy templates, app to Flask application
+* More research into frontend frameworks
 
 ### Tuesday, June 23 (2hr)###
 * Research into Flask
