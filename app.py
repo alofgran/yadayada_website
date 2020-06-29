@@ -5,10 +5,23 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 db = SQLAlchemy(app)
 
+class Video(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(80), unique=True)
+    description = db.Column(db.String(500))
+    transcription = db.Column(db.String(4000))
+    filename = db.Column(db.String(120), nullable=False)
+    privacy = db.Column(db.Boolean, default=True)
+
+    def __repr__(self):
+        return '<Video %r>' % self.title
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80), nullable=False)
     username = db.Column(db.String(80), unique=True)
-    email = db.Column(db.String(100), unique=True)
+    password = db.Column(db.String(30), unique=False)
+    isadmin = db.Column(db.Boolean, default=False)
 
     def __repr__(self):
         return '<User %r>' % self.username
