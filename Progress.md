@@ -2,6 +2,10 @@
 
 Below is the progress done by @ryanegbert each day on YadaYada Now.
 
+### Monday, June 29 (1hr)###
+* Set up database
+* Set up models for Video and User
+
 ### Wednesday, June 24 (1.5hr)###
 * Added dummy templates, app to Flask application
 * More research into frontend frameworks
