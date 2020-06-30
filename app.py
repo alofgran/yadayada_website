@@ -7,11 +7,12 @@ db = SQLAlchemy(app)
 
 class Video(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    author = db.Column(db.String(80), unique=False)
     title = db.Column(db.String(80), unique=True)
     description = db.Column(db.String(500))
     transcription = db.Column(db.String(4000))
     filename = db.Column(db.String(120), nullable=False)
-    privacy = db.Column(db.Boolean, default=True)
+    privacy = db.Column(db.Boolean, default=True) #published vs. unpublished??? --AL
 
     def __repr__(self):
         return '<Video %r>' % self.title
@@ -22,6 +23,9 @@ class User(db.Model):
     username = db.Column(db.String(80), unique=True)
     password = db.Column(db.String(30), unique=False)
     isadmin = db.Column(db.Boolean, default=False)
+    ispro = db.Column(db.Boolean, default=False)
+    email = db.Column(db.String(80), unique=True)
+
 
     def __repr__(self):
         return '<User %r>' % self.username
