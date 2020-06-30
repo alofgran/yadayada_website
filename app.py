@@ -22,11 +22,9 @@ class User(db.Model):
     name = db.Column(db.String(80), nullable=False)
     username = db.Column(db.String(80), unique=True)
     password = db.Column(db.String(30), unique=False)
-    isadmin = db.Column(db.Boolean, default=False)
-    ispro = db.Column(db.Boolean, default=False)
+    permission = db.Column(db.Integer, default=0, nullable=False)
     email = db.Column(db.String(80), unique=True)
-
-
+    
     def __repr__(self):
         return '<User %r>' % self.username
 
