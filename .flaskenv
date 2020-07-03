@@ -1,0 +1,2 @@
+FLASK_APP=yadayada.py
+FLASK_DEBUG=1

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Sign In</h1>
+    <!--action="" sends form to current URL, novalidate ensures validation is carried out by the Flask and not by the browser-->
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}<!--generates hidden field used to protect against CSRF attacks-->
+        <p>
+            {{ form.username.label }}<br>
+            {{ form.username(size=32) }}<!--can attach css/IDs like this to form fields too-->
+            {% for error in form.username.errors %}
+            <span style = "color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}
+            {% for error in form.password.errors %}
+            <span style = "color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

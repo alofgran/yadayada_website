@@ -1,10 +1,10 @@
-from flask import Flask, render_template
-from flask_sqlalchemy import SQLAlchemy
+from app import db
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
-db = SQLAlchemy(app)
-
+"""
+This file defines the database schema by inheriting the db.Model class from
+SQLAlchemy in the creation of each table. Columns in each table inherit an
+instance of the db.Column class.
+"""
 class Video(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     author = db.Column(db.String(80), unique=False)
@@ -17,24 +17,16 @@ class Video(db.Model):
     def __repr__(self):
         return '<Video %r>' % self.title
 
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80), nullable=False)
+    first_name = db.Column(db.String(80), nullable=False)
+    last_name = db.Column(db.STring(80), nullable=False)
     username = db.Column(db.String(80), unique=True)
-    password = db.Column(db.String(30), unique=False)
-    permission = db.Column(db.Integer, default=0, nullable=False)
+    creation_date = db.Column(db.DateTime())
+    password_hash = db.Column(db.String(30), unique=False) #store password hashes instead
+    permission = db.Column(db.Integer, default=0, nullable=False) #maybe an ENUM type?
     email = db.Column(db.String(80), unique=True)
-    
+
     def __repr__(self):
         return '<User %r>' % self.username
-
-@app.route("/")
-def main():
-    return render_template("test1.html", header="this is a test, my name is ryan")
-
-@app.route("/<name>")
-def name(name):
-    return render_template("test1.html", header=name)
-
-if __name__ == "__main__":
-    app.run(debug=True)

@@ -1,0 +1,11 @@
+{% extends 'base.html' %} <!--`extends` establishes inheritance-->
+
+{% block content %}
+    <h1>Hi, {{ user.username }}!</h1>
+    {% for post in posts %}
+        <div><p><b>Title:</b> {{ post.title }}</p></div>
+        <div><p><b>Description:</b> {{ post.description }}</p></div>
+        <div><p><b>Filename: </b> {{ post.filename }}</p></div>
+        <br></br>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,30 @@
+<html>
+    <head>
+        {% if title %}
+            <title>{{ title }} - YadaYada</title>
+        {% else %}
+            <title>Welcome to YadaYada!</title>
+        {% endif %}
+    </head>
+    <body>
+        <div>
+            YadaYada --
+            <a href={{ url_for('index') }}>Home</a>
+            <a href={{ url_for('login') }}>Login</a>
+        </div>
+        <hr>
+        <!--Note that messages requested via get_flashed_messages are deleted once retrieved-->
+        {% with messages = get_flashed_messages() %} <!--get messages-->
+            {% if messages %} <!--if the messages have content...-->
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        {% endwith %}
+        <!--`Block` defines where derived templates can insert themselves-->
+        <!--blocks get unique names, in this case `content` for use elsewhere-->
+        {% block content %}{% endblock %}
+    </body>
+</html>

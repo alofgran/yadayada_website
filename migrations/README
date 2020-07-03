@@ -1,0 +1,5 @@
+Generic single-database configuration.
+
+The migrations folder was created by running `flask db init` (a sub-command
+native to `flask_migrate` used to manage everything related to database
+migrations).  
