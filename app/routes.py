@@ -6,24 +6,25 @@ from app.forms import LoginForm
 @app.route('/index')
 def index():
     #Fake data for setup only --> will pull from database later
-    user = {'username': 'Alex'}
-    posts = [
-        {
-            'title': 'My kid has a fever',
-            'description': 'Discussing fevers in pediatric patients',
-            'filename': 'health_pediatrics_fever.mov'
-        },
-        {
-            'title': 'Everything you wanted to know about UTIs',
-            'description': 'Urinary Tract Infections',
-            'filename': 'health_family_uti.mov'
-        },
-        {
-            'title': 'Reducing personal debt',
-            'description': 'Learn how to eliminate your debt',
-            'filename': 'finance_debt.mov'
-        }
-    ]
+    
+    # user = {'username': 'Alex'}
+    # posts = [
+    #     {
+    #         'title': 'My kid has a fever of 103',
+    #         'description': 'The only cure is more cow bell',
+    #         'filename': 'health_pediatrics_fever.mov'
+    #     },
+    #     {
+    #         'title': 'Everything you wanted to know about UTIs',
+    #         'description': 'Urinary Tract Infections aren\'t your friend',
+    #         'filename': 'health_family_uti.mov'
+    #     },
+    #     {
+    #         'title': 'Reducing personal debt',
+    #         'description': 'Pay down your debt with credit cardz...',
+    #         'filename': 'finance_debt.mov'
+    #     }
+    # ]
 
     return render_template('index.html', title='Home', user=user, posts=posts)
 
