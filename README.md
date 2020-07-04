@@ -1,5 +1,5 @@
 # README #
-</h2>Root Files</h2>
+<h2>Root Files</h2>
 * `__init__.py`: Instantiates the flask app and connects it to the database
 
 * `.flaskenv`: registers environment variables that you want to be automatically imported when you run the `flask` command (requires the `python-dotenv` package). Critical to change FLASK_DEBUG to 0 when switching to production.
@@ -25,3 +25,4 @@
 <h2>Reminders for Production</h2>
 * Turn off Flask's debug mode
 * Set the SECRET_KEY (in config.py) to something unique and difficult to guess
+* Upgrade database (if needed) - see [here](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database)
