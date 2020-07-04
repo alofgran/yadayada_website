@@ -6,8 +6,7 @@ from config import Config
 
 app = Flask(__name__)
 app.config.from_object(Config)
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-from app import routes #This must be placed at the end to avoid the circular imports problem
+from app import routes, db_models #This must be placed at the end to avoid the circular imports problem
